@@ -1,0 +1,16 @@
+{
+  "society_name": "KLR Legacy Society",
+  "members": [
+    {
+      "id": "uuid-1",
+      "name": "Rupesh KLR",
+      "pic": "https://via.placeholder.com/150",
+      "dob": "1990-01-01",
+      "contacts": { "phone": "+91-9999999999", "email": "rupesh@klr.com" },
+      "relationships": ["uuid-2", "uuid-3"],
+      "comments": [
+        { "id": "c1", "author": "self", "text": "Founder of the tree" }
+      ]
+    }
+  ]
+}
