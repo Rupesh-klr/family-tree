@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Rupesh KLR",
+    "phone": "+91-9999999999",
+    "email": "rupesh@klr.com",
+    "dob": "1990-01-01",
+    "location": "Hyderabad",
+    "pic": "rupesh.png",
+    "hide_personal": false,
+    "gender": "Male",
+    "orientation": "Heterosexual",
+    "citizenship": "Indian",
+    "race": "South Asian",
+    "relationship_type": "Brother"
+  },
+  {
+    "name": "Sarah Doe",
+    "phone": "+1-555-0199",
+    "email": "sarah.doe@example.com",
+    "dob": "1995-05-15",
+    "location": "New York",
+    "pic": "sister1.png",
+    "hide_personal": true,
+    "gender": "Female",
+    "orientation": "Bisexual",
+    "citizenship": "American",
+    "race": "White/European",
+    "relationship_type": "Cousin"
+  },
+  {
+    "name": "Alex Smith",
+    "phone": "",
+    "email": "",
+    "dob": "",
+    "location": "London",
+    "pic": "default-profile.png",
+    "hide_personal": false,
+    "gender": "Non-Binary",
+    "orientation": "Queer",
+    "citizenship": "British",
+    "race": "Mixed",
+    "relationship_type": "Friend"
+  }
+]

@@ -5,6 +5,8 @@ import { FaBars, FaTimes, FaUserCircle } from 'react-icons/fa';
 import AuthModal from '../Auth/AuthModal';
 import { logout } from '../../store/authSlice';
 
+import { getAvatarPath } from '../../utils/constants';
+
 const Navbar = () => {
   const { isAuthenticated, user } = useSelector(state => state.auth);
   const dispatch = useDispatch();
@@ -27,7 +29,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-6">
            {isAuthenticated ? (
              <div className="flex items-center gap-3 bg-white/5 px-4 py-1.5 rounded-full border border-white/10">
-                <img src={user.pic} alt="Profile" className="w-8 h-8 rounded-full border border-purple-500" />
+                <img src={getAvatarPath(user.pic)} alt="Profile" className="w-8 h-8 rounded-full border border-purple-500" />
                 <span className="text-sm text-gray-300 font-mono">{displayEmail}</span>
                 <button onClick={() => dispatch(logout())} className="text-xs text-red-400 hover:text-red-300 ml-2">Logout</button>
              </div>

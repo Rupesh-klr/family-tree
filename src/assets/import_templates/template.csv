@@ -1,0 +1,4 @@
+name,phone,email,dob,location,pic,hide_personal,gender,orientation,citizenship,race,relationship_type
+Rupesh KLR,+91-9999999999,rupesh@klr.com,1990-01-01,Hyderabad,rupesh.png,FALSE,Male,Heterosexual,Indian,South Asian,Brother
+Sarah Doe,+1-555-0199,sarah.doe@example.com,1995-05-15,New York,sister1.png,TRUE,Female,Bisexual,American,White/European,Cousin
+Alex Smith,,,,"London",default-profile.png,FALSE,Non-Binary,Queer,British,Mixed,Friend

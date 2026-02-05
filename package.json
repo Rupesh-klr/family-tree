@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.2",
+    "dotenv": "^17.2.3",
     "framer-motion": "^12.31.0",
+    "papaparse": "^5.5.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-helmet-async": "^2.0.5",
@@ -20,7 +22,8 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.13.0",
     "redux-persist": "^6.0.0",
-    "uuid": "^13.0.0"
+    "uuid": "^13.0.0",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

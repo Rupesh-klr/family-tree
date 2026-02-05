@@ -1,0 +1,79 @@
+# 1. Create the script file
+cat << 'EOF' > generate_images.sh
+#!/bin/bash
+
+# Create output directory
+mkdir -p final_assets
+
+# Convert .jpeg to .png if any exist
+for file in *.jpeg; do
+    [ -f "$file" ] && mv "$file" "${file%.jpeg}.png"
+done
+
+# Define Source Arrays
+male_sources=(brother*.png man*.png image-profile*.png)
+female_sources=(girl*.png sister*.png)
+
+# Helper function to get random image
+get_random_image() {
+    local gender=$1
+    if [ "$gender" == "male" ]; then
+        # Pick random male image
+        if [ ${#male_sources[@]} -eq 0 ]; then echo ""; return; fi
+        local rand_idx=$(( RANDOM % ${#male_sources[@]} ))
+        echo "${male_sources[$rand_idx]}"
+    else
+        # Pick random female image
+        if [ ${#female_sources[@]} -eq 0 ]; then echo ""; return; fi
+        local rand_idx=$(( RANDOM % ${#female_sources[@]} ))
+        echo "${female_sources[$rand_idx]}"
+    fi
+}
+
+# Target List
+targets=(
+"default-profile.png" "vasu-dev.png" "rupesh.png" "gokgoal.png"
+"sister1.png" "sister2.png" "sister3.png" "sisterelder.png" "sisteryounger.png"
+"brother1.png" "brother2.png" "brother3.png" "brotherelder.png" "brotheryounger.png"
+"father1.png" "father2.png" "father3.png" "father4.png"
+"mother1.png" "mother2.png" "mother3.png" "mother4.png"
+"father-sister1.png" "father-sister2.png" "father-sister3.png"
+"father-brother1.png" "father-brother2.png" "father-brother3.png"
+"cousinsister1.png" "cousinsister2.png" "cousinsister3.png" "cousinsisterelder.png" "cousinsisteryounger.png"
+"cousinbrother1.png" "cousinbrother2.png" "cousinbrother3.png" "cousinbrotherelder.png" "cousinbrotheryounger.png"
+"father-cousinsister1.png" "father-cousinsister2.png" "father-cousinsister3.png"
+"father-cousinsisterelder.png" "father-cousinsisteryounger.png"
+"father-cousinbrother1.png" "father-cousinbrother2.png" "father-cousinbrother3.png"
+"father-cousinbrotherelder.png" "father-cousinbrotheryounger.png"
+"mother-cousin-sister1.png" "mother-cousin-sister2.png" "mother-cousin-sister3.png"
+"mother-cousin-sisterelder.png" "mother-cousin-sisteryounger.png"
+"mother-cousin-brother1.png" "mother-cousin-brother2.png" "mother-cousin-brother3.png"
+"mother-cousin-brotherelder.png" "mother-cousin-brotheryounger.png"
+"grandfather-paternal.png" "grandmother-paternal.png"
+"grandfather-maternal.png" "grandmother-maternal.png"
+"uncle-sharma.png" "uncle-verma.png" "aunty-sharma.png" "aunty-verma.png"
+"nephew-1.png" "niece-1.png"
+)
+
+# Loop and Generate
+echo "Generating images..."
+for target in "${targets[@]}"; do
+    if [[ "$target" == *"sister"* || "$target" == *"mother"* || "$target" == *"girl"* || "$target" == *"aunty"* || "$target" == *"niece"* || "$target" == *"grandmother"* ]]; then
+        source_img=$(get_random_image "female")
+    else
+        source_img=$(get_random_image "male")
+    fi
+
+    if [ -f "$source_img" ]; then
+        cp "$source_img" "final_assets/$target"
+        echo "Created $target"
+    else
+        echo "Warning: No source image found for $target (Source was: $source_img)"
+    fi
+done
+
+echo "Done! Check final_assets folder."
+EOF
+
+# 2. Run the script
+bash generate_images.sh
