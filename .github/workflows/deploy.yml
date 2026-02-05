@@ -3,10 +3,11 @@ name: Deploy Vite site to Pages
 on:
   push:
     branches: ["main"]
-    # 👇 Add this here (Global Scope)
-  env:
-    isLiveInGitHUB: "true"
   workflow_dispatch:
+
+# FIX: 'env' must be here (no indentation), NOT inside 'on'
+env:
+  isLiveInGitHUB: "true"
 
 # Permissions for deploying to GitHub Pages
 permissions:
@@ -38,12 +39,8 @@ jobs:
 
       - name: Build
         run: npm run build
-        env:
-          # 👇 Add this here
-          isLiveInGitHUB: "true" 
-          # PRO TIP: If you want to use this inside React/Vite, 
-          # you usually need to prefix it with VITE_:
-          # VITE_IS_LIVE_IN_GITHUB: "true"
+        # You don't need 'env' here anymore since it is defined globally above,
+        # but leaving it here doesn't hurt.
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -65,4 +62,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
